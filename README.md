@@ -75,7 +75,10 @@ animation <- image_animate(images, fps = 2,optimize=T)
 image_write(animation, 'test1.gif')
 ```
 
-If you have any question to the pre-processing, please don't hesitate to contact me (@maurosc3ner, e-mail: correaem@mail.uc.edu).
+If you have any question to the pre-processing, please you can reach me at:
+[@maurosc3ner](https://twitter.com/maurosc3ner)
+[e-mail](correaem@mail.uc.edu)
+https://maurosc3ner.github.io/blog/
 
 Thanks.
 
