@@ -14,6 +14,29 @@
 
 We will use the **North American Regional Estimates (V4.NA.02.MAPLE)** for the surface pm 2.5 [1]. You can get the raw images from [here](http://fizz.phys.dal.ca/~atmos/martin/?page_id=140).  However, I have already processed 2000-2018 for you and placed as a time-wide format by U.S. FIPS (check data/pm2.5byCounty.csv)
 
+```
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+rm(list = ls())
+library(tidyverse)
+library(raster)
+library(rgdal)
+library(sf)
+library(ggthemes)
+library(rgeos)
+library(maptools)
+library(spacetime)
+library(magick)
+
+d<-read.csv("pm2.5byCounty.csv")   
+
+uscounty<-readOGR("../covid19/data/SVI2018","SVI2018_US_county")
+uscounty@data<-uscounty@data %>%
+  select(FIPS,ST,ST_ABBR) #subset columns
+```
+
+```
+
 
 ## References
 
