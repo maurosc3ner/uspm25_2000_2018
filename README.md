@@ -12,7 +12,7 @@
 
 ## Dataset
 
-We will use the **North American Regional Estimates (V4.NA.02.MAPLE)** for the surface pm 2.5 [1]. You can get the raw images from [here](http://fizz.phys.dal.ca/~atmos/martin/?page_id=140).  However, I have already processed 2000-2018 for you and placed as a time-wide format by U.S. FIPS,  (check [data/pm2.5byCounty.csv](https://github.com/maurosc3ner/uspm25_2000_2018/blob/master/data/pm2.5byCounty.csv) ). For the map, CDC's US-ADM2 map for my analysis but you can use also getData boundaries too.
+We will use the **North American Regional Estimates (V4.NA.02.MAPLE)** for the surface pm 2.5 [1]. You can get the raw images from [here](http://fizz.phys.dal.ca/~atmos/martin/?page_id=140).  However, I have already processed 2000-2018 for you and placed as a time-wide format by U.S. FIPS,  (check [data/pm2.5byCounty.csv](https://github.com/maurosc3ner/uspm25_2000_2018/blob/master/data/pm2.5byCounty.csv) ). For the county-level spatial data, I am using the CDC's US-ADM2 map due to my analysis [2], but you can use **getData boundaries** too as long as it has fips codes for the join.
 
 ## Code 
 
@@ -75,9 +75,14 @@ animation <- image_animate(images, fps = 2,optimize=T)
 image_write(animation, 'test1.gif')
 ```
 
+If you have any question to the pre-processing, please don't hesitate to contact me (@maurosc3ner, e-mail: correaem@mail.uc.edu).
+
+Thanks.
 
 ## References
 
 [1] van Donkelaar, A., R. V. Martin, et al. (2019). Regional Estimates of Chemical Composition of Fine Particulate Matter using a Combined Geoscience-Statistical Method with Information from Satellites, Models, and Monitors. Environmental Science & Technology, 2019, [doi:10.1021/acs.est.8b06392](https://doi.org/10.1021/acs.est.8b06392).
 
-[2] Initial custom albers projection https://github.com/hrbrmstr/rd3albers
+[2] CDC's Social Vulnerability Index (SVI) https://svi.cdc.gov/data-and-tools-download.html
+
+[3] Initial custom albers projection https://github.com/hrbrmstr/rd3albers
