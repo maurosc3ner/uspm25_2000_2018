@@ -14,6 +14,8 @@
 
 We will use the **North American Regional Estimates (V4.NA.02.MAPLE)** for the surface pm 2.5 [1]. You can get the raw images from [here](http://fizz.phys.dal.ca/~atmos/martin/?page_id=140).  However, I have already processed 2000-2018 for you and placed as a time-wide format by U.S. FIPS,  (check [data/pm2.5byCounty.csv](https://github.com/maurosc3ner/uspm25_2000_2018/blob/master/data/pm2.5byCounty.csv) ). For the map, CDC's US-ADM2 map for my analysis but you can use also getData boundaries too.
 
+## Code 
+
 ### Load libraries and datasets
 ```
 rm(list = ls())
@@ -34,11 +36,9 @@ uscounty@data<-uscounty@data %>%
   select(FIPS,ST,ST_ABBR) #subset columns
 ```
 
+### Mapping
 
-
-### Load libraries and datasets
-
-## Mapping
+You can tweak ggplot according to your needs (more dpi) but it will take more time for the animation.
 
 ```
 # color range fix!
@@ -62,9 +62,12 @@ for(idx in 2000:2018){
        width = 25, dpi = 200, units = "cm", device='png')
 
 }
+# plot the last to be sure
+g1
 ```
 
 ## Animation
+
 ```
 list <- list.files(productPath, '*_pm25.png')
 images <- image_read(list)
