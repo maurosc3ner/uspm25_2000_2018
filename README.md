@@ -17,6 +17,6 @@ We will use the **North American Regional Estimates (V4.NA.02.MAPLE)** for the s
 
 ## References
 
-[1] van Donkelaar, A., R. V. Martin, et al. (2019). Regional Estimates of Chemical Composition of Fine Particulate Matter using a Combined Geoscience-Statistical Method with Information from Satellites, Models, and Monitors. Environmental Science & Technology, 2019, [doi:10.1021/acs.est.8b06392](doi:10.1021/acs.est.8b06392).
+[1] van Donkelaar, A., R. V. Martin, et al. (2019). Regional Estimates of Chemical Composition of Fine Particulate Matter using a Combined Geoscience-Statistical Method with Information from Satellites, Models, and Monitors. Environmental Science & Technology, 2019, [doi:10.1021/acs.est.8b06392](https://doi.org/10.1021/acs.est.8b06392).
 
 [2] Initial custom albers projection https://github.com/hrbrmstr/rd3albers
