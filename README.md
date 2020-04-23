@@ -2,7 +2,7 @@
 
 ## County-Level Annual Mean PM2.5 Concentrations, 2000-2018
 
-![US PM2.5 ]()
+![US PM2.5 ](https://github.com/maurosc3ner/uspm25_2000_2018/blob/master/data/pm2.5byCounty.csv)
 
 
 ## Mini-tutorial goals
