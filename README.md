@@ -2,17 +2,17 @@
 
 ## County-Level Annual Mean PM2.5 Concentrations, 2000-2018
 
-![US PM2.5 ](https://github.com/maurosc3ner/uspm25_2000_2018/blob/master/data/pm2.5byCounty.csv)
+![US PM2.5 ]()
 
 
-## Mini-tutorial goals
+## Objectives
 
 + Creating custom equal-area albers projection by moving AL and HI to the bottom.
 + Create an animation of the Annual Mean PM2.5 Concentrations by County in R (ggplot, magick)
 
-## Dataset:
+## Dataset
 
-We will use the **North American Regional Estimates (V4.NA.02.MAPLE)** for the surface pm 2.5 [1]. You can get the raw images from [here](http://fizz.phys.dal.ca/~atmos/martin/?page_id=140).  However, I have already processed 2000-2018 for you and placed as a time-wide format by U.S. FIPS (check data/pm2.5byCounty.csv)
+We will use the **North American Regional Estimates (V4.NA.02.MAPLE)** for the surface pm 2.5 [1]. You can get the raw images from [here](http://fizz.phys.dal.ca/~atmos/martin/?page_id=140).  However, I have already processed 2000-2018 for you and placed as a time-wide format by U.S. FIPS,  (check [data/pm2.5byCounty.csv](https://github.com/maurosc3ner/uspm25_2000_2018/blob/master/data/pm2.5byCounty.csv) )
 
 ### Load libraries and datasets
 ```
