@@ -26,7 +26,6 @@ library(sf)
 library(ggthemes)
 library(rgeos)
 library(maptools)
-library(spacetime)
 library(magick)
 
 d<-read.csv("pm2.5byCounty.csv")   
