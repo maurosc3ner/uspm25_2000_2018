@@ -74,6 +74,11 @@ animation <- image_animate(images, fps = 2,optimize=T)
 image_write(animation, 'test1.gif')
 ```
 
+## Everything is better in black!
+
+![US PM2.5 ](testCividis.gif)
+
+
 If you have any question to the pre-processing, please you can reach me at:
 [@maurosc3ner](https://twitter.com/maurosc3ner)
 [e-mail](correaem@mail.uc.edu)
