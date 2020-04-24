@@ -35,6 +35,51 @@ uscounty@data<-uscounty@data %>%
   select(FIPS,ST,ST_ABBR) #subset columns
 ```
 
+# Custom albers-prj
+
+```
+# taken from https://github.com/hrbrmstr/rd3albers
+crsAlbers<-CRS("+proj=laea +lat_0=45 +lon_0=-100 +x_0=0 +y_0=0 +a=6370997 +b=6370997 +units=m +no_defs")
+us_aea <- spTransform(uscounty,crsAlbers )
+us_aea@data$id <- rownames(us_aea@data)
+
+# extract, then rotate, shrink & move alaska (and reset projection)
+alaska <- us_aea[us_aea$ST=="02",]
+# plot(alaska)
+# avoid 'row.names of data and Polygons IDs do not match' error
+# then convert it to SPDF back again
+alaskaDF <- as.data.frame(alaska)
+# and set rowname=ID from polygon@ID  https://stat.ethz.ch/pipermail/r-help/2005-December/085175.html
+row.names(alaskaDF) <- sapply(slot(alaska, "polygons"), function(x) slot(x, "ID"))
+alaska <- SpatialPolygonsDataFrame(alaska, alaskaDF)
+#geometric operations
+alaska <- elide(alaska, rotate=-50)
+alaska <- elide(alaska, scale=max(apply(bbox(alaska), 1, diff)) / 2.3)
+alaska <- elide(alaska, shift=c(-2200000, -2600000))
+proj4string(alaska) <- proj4string(us_aea)
+# plot(alaska)
+
+## Repeat the same process for Hawaii
+# extract, then rotate & shift hawaii
+hawaii <- us_aea[us_aea$ST=="15",]
+hawaiiDF <- as.data.frame(hawaii)
+# and set rowname=ID from polygon  https://stat.ethz.ch/pipermail/r-help/2005-December/085175.html
+row.names(hawaiiDF) <- sapply(slot(hawaii, "polygons"), function(x) slot(x, "ID"))
+hawaii <- SpatialPolygonsDataFrame(hawaii, hawaiiDF)
+# continue rotating
+hawaii <- elide(hawaii, rotate=-35)
+hawaii <- elide(hawaii, shift=c(5550000, -1800000))
+proj4string(hawaii) <- proj4string(us_aea)
+us_aea <- us_aea[!us_aea$ST %in% c("02", "15", "72"),]
+us_aea <- rbind(us_aea, alaska, hawaii)
+
+#Plot final results
+plot(us_aea)
+# Generate State level map
+usStates<-gUnaryUnion(us_aea, id = us_aea@data$ST)
+plot(usStates)
+```
+
 ### Mapping
 
 You can tweak ggplot according to your needs (more dpi) but it will take more time for the animation.
